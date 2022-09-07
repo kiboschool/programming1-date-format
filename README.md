@@ -28,7 +28,7 @@ none: ""
 Takes in a month and a format specifier ('long', 'short', 'numeric', or 'none').
 Returns the month, according to the specifier:
 
-input month: "10"
+input month: "October"
 
 long: "October"
 short: "Oct" (first three letters of the month, for any month)
@@ -40,7 +40,7 @@ none: ""
 Takes a day of the month and a format specifier ('ordinal', 'numeric', or 'none')
 Returns the day of the month, according to the specifier:
 
-input day: 22
+input day: "22"
 ordinal: "22nd" (ends in '1st' for numbers ending in 1, '2nd' for 2, '3rd' for 3, '4th' '5th' etc for other final digits)
 numeric: "22"
 none: ""
@@ -48,9 +48,23 @@ none: ""
 `format_date`
 
 Takes in a month, day, and year, and optional month, day, and year format
-specifiers. Uses the helper functions, and returns a formatted date.
+specifiers, as well as an optional separator. Uses the helper functions, and returns a formatted date.
 
-The default options for month, day, and year are 'long', 'long', and 'ordinal'.
+The default specifier options for year, month, and day are 'long', 'long', and 'ordinal'.
+
+The default argument for separator is " ".
+
+Here are some examples of running the `format_date` function:
+
+```python
+format_date(year="1999", month="October", day="20") # => "20th October 1999"
+
+format_date("1999", "October", "20", day_specifier="numeric", 
+  year_specifier="short", month_specifier="numeric", separator="/") #=> "20/10/99"
+
+format_date("1999", "October", "20", separator="-", day_specifier="numeric", 
+  month_specifier="short") #=> "20-Oct-1999"
+```
 
 ## Testing
 
